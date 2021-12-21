@@ -4,9 +4,9 @@
     "description": "Import Tools for EspoCRM.",
     "author": "EspoCRM",
     "acceptableVersions": [
-        ">=5.9.0"
+        ">=7.0.0"
     ],
     "php": [
-        ">=7.2"
+        ">=7.3"
     ]
 }
