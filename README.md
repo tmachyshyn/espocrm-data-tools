@@ -177,7 +177,7 @@ Prepare:
 Command to run unit tests:
 
 ```
-vendor/bin/phpunit tests/unit/Espo/Modules/{@name}
+vendor/bin/phpunit tests/unit/Espo/Modules/ImportTools
 ```
 
 ### Integration
@@ -203,7 +203,7 @@ The file should exist before you run `node build --copy`.
 Command to run integration tests:
 
 ```
-vendor/bin/phpunit tests/integration/Espo/Modules/{@name}
+vendor/bin/phpunit tests/integration/Espo/Modules/ImportTools
 ```
 
 ## Configuring IDE
@@ -212,9 +212,9 @@ You need to set the following paths to be ignored in your IDE:
 
 * `build`
 * `site/build`
-* `site/application/Espo/Modules/{@name}`
-* `site/tests/unit/Espo/Modules/{@name}`
-* `site/tests/integration/Espo/Modules/{@name}`
+* `site/application/Espo/Modules/ImportTools`
+* `site/tests/unit/Espo/Modules/ImportTools`
+* `site/tests/integration/Espo/Modules/ImportTools`
 
 ## License
 

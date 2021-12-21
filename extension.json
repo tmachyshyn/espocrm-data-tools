@@ -1,8 +1,8 @@
 {
-    "module": "{@name}",
-    "name": "{@nameLabel}",
-    "description": "{@description}",
-    "author": "{@author}",
+    "module": "ImportTools",
+    "name": "ImportTools",
+    "description": "Import Tools for EspoCRM.",
+    "author": "EspoCRM",
     "acceptableVersions": [
         ">=5.9.0"
     ],
