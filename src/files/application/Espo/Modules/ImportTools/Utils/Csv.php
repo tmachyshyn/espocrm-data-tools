@@ -49,4 +49,22 @@ class Csv
 
         return array_values($data);
     }
+
+    /**
+     * Get array from a string data like "item1, item2"
+     */
+    public static function toArrayFromStringData(string $cells, string $delimiter = ','): array
+    {
+        $cellList = explode($delimiter, $cells);
+
+        if (!is_array($cellList)) {
+            return [];
+        }
+
+        foreach ($cellList as &$cell) {
+            $cell = trim($cell);
+        }
+
+        return $cellList;
+    }
 }
