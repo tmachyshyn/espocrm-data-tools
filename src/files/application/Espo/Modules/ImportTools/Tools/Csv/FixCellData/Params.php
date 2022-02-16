@@ -26,7 +26,10 @@
 
 namespace Espo\Modules\ImportTools\Tools\Csv\FixCellData;
 
-use Espo\Modules\ImportTools\Tools\Params as IParams;
+use Espo\Modules\ImportTools\{
+    Tools\Params as IParams,
+    Utils\Csv as CsvUtils,
+};
 
 use RuntimeException;
 
@@ -53,35 +56,51 @@ class Params implements IParams
     {
         $obj = new self();
 
-        if ($params['src']) {
-            $obj->src = $params['src'];
-        }
-
-        if ($params['dest']) {
-            $obj->dest = $params['dest'];
-        }
-
-        if ($params['delimiter']) {
-            $obj->delimiter = $params['delimiter'];
-        }
-
-        if ($params['delimiterInsideCell']) {
-            $obj->delimiterInsideCell = $params['delimiterInsideCell'];
-        }
-
+        $src = $params['src'] ?? null;
+        $dest = $params['dest'] ?? null;
+        $delimiter = $params['delimiter'] ?? null;
+        $delimiterInsideCell = $params['delimiterInsideCell'] ?? null;
         $cells = $params['cells'] ?? null;
+
+        if (!file_exists($src)) {
+            throw new RuntimeException('Scr file "' . $src . '" is not found.');
+        }
+
+        if ($src) {
+            $obj->src = $src;
+        }
+
+        if ($dest) {
+            $obj->dest = $dest;
+        }
+
+        if ($delimiter) {
+            $obj->delimiter = $delimiter;
+        }
+
+        if ($delimiterInsideCell) {
+            $obj->delimiterInsideCell = $delimiterInsideCell;
+        }
 
         if (!$cells) {
             throw new RuntimeException('Option "cells" is not defined.');
         }
 
-        $obj->cellList = $obj->normalizeCells($cells);
+        $obj->cellList = CsvUtils::toArrayFromStringData($cells);
+
+        if (empty($obj->cellList)) {
+            throw new RuntimeException('Incorrect cells: "' . $cells . '".');
+        }
 
         return $obj;
     }
 
     public function withSrc(string $src): self
     {
+        if (!file_exists($src)) {
+            throw new RuntimeException('Scr file "' . $src . '" is not found.');
+        }
+
         $obj = clone $this;
 
         $obj->src = $src;
@@ -120,7 +139,7 @@ class Params implements IParams
     {
         $obj = clone $this;
 
-        $obj->cellList = $obj->normalizeCells($cells);
+        $obj->cellList = CsvUtils::toArrayFromStringData($cells);
 
         return $obj;
     }
@@ -191,20 +210,5 @@ class Params implements IParams
             'delimiterInsideCell' => $this->delimiterInsideCell,
             'cellList' => $this->cellList,
         ];
-    }
-
-    private function normalizeCells(string $cells): array
-    {
-        $cellList = explode(',', $cells);
-
-        if (!is_array($cellList)) {
-            throw new RuntimeException('Option "cells" is not defined.');
-        }
-
-        foreach ($cellList as &$cell) {
-            $cell = trim($cell);
-        }
-
-        return $cellList;
     }
 }
