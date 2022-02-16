@@ -51,6 +51,29 @@ class Csv
     }
 
     /**
+     * Get header list from .csv file
+     */
+    public static function getHeaderList(string $src, string $delimiter): array
+    {
+        if (!file_exists($src)) {
+            return [];
+        }
+
+        $fp = fopen($src, "r");
+
+        $headerList = [];
+
+        while (($row = fgetcsv($fp, 0, $delimiter)) !== FALSE) {
+            $headerList = $row;
+            break;
+        }
+
+        fclose($fp);
+
+        return $headerList;
+    }
+
+    /**
      * Get array from a string data like "item1, item2"
      */
     public static function toArrayFromStringData(string $cells, string $delimiter = ','): array
