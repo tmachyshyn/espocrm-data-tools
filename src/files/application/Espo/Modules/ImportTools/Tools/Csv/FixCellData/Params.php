@@ -32,6 +32,8 @@ use RuntimeException;
 
 class Params implements IParams
 {
+    private $toolName = 'FixCellData';
+
     private $src = 'data/src.csv';
 
     private $dest = 'data/dest.csv';
@@ -130,6 +132,14 @@ class Params implements IParams
         $obj->cellList = $cellList;
 
         return $obj;
+    }
+
+    /**
+     * Get a tool name
+     */
+    public function getToolName(): ?string
+    {
+        return $this->toolName;
     }
 
     /**

@@ -27,24 +27,24 @@
 namespace Espo\Modules\ImportTools\Core\Console\Commands\CsvTools;
 
 use Espo\Core\{
-    Di,
     Console\IO,
     Console\Command,
     Console\Command\Params,
 };
 
-use Espo\Modules\ImportTools\Tools\Csv\FixCellData\Params as ToolParams;
+use Espo\Modules\ImportTools\Tools\{
+    ToolRunner,
+    Csv\FixCellData\Params as ToolParams,
+};
 
-use Throwable;
-
-class FixCellData implements
-
-    Command,
-    Di\MetadataAware,
-    Di\InjectableFactoryAware
+class FixCellData implements Command
 {
-    use Di\MetadataSetter;
-    use Di\InjectableFactorySetter;
+    private $toolRunner;
+
+    public function __construct(ToolRunner $toolRunner)
+    {
+        $this->toolRunner = $toolRunner;
+    }
 
     public function run(Params $params, IO $io): void
     {
@@ -56,39 +56,6 @@ class FixCellData implements
             'cells' => $params->getOption('cells'),
         ]);
 
-        $action = $params->getArgument(0);
-
-        $className = $this->metadata->get([
-            'app', 'importTools', 'toolsClassNameMap', ucfirst($action)
-        ]);
-
-        if (!$className || !class_exists($className)) {
-            $io->writeLine(
-                "Error: tool is not found."
-            );
-
-            return;
-        }
-
-        $class = $this->injectableFactory->create($className);
-
-        try {
-            $class->run($toolParams);
-        } catch (Throwable $e) {
-            $io->writeLine(
-                "Error: " . $e->getMessage()
-            );
-
-            $GLOBALS['log']->error(
-                'ImportTools Error: ' . $e->getMessage() .
-                ' at '. $e->getFile() . ':' . $e->getLine()
-            );
-
-            return;
-        }
-
-        $io->writeLine(
-            "Done. Saved to \"" . $params->getOption('dest') . "\"."
-        );
+        $this->toolRunner->run($toolParams, $io);
     }
 }
