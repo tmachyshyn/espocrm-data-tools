@@ -2,9 +2,9 @@
 
 Tools that help you fix data before import
 
-## 1. Skipping invalid email adresses
+## 1. Skipping invalid email addresses
 
-This tool helps to find invalid email adresses and skip them in the .csv file.
+This tool helps to find invalid email addresses and skip them in the .csv file.
 After running this tool will be created two .csv files:
 
 - the first will contain the list of correct records.
