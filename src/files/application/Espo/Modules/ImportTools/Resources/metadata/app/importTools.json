@@ -16,6 +16,13 @@
             "delimiter": "Delimiter of your .csv file.",
             "delimiterInsideCell": "Delimiter inside a cell, e.g. \"email1@sample.com, email2@sample.com,\"",
             "cells": "List of cells wich data should be fixed, e.g. \"Phone Number, Work Email\"."
+        },
+        "SkipInvalidEmails": {
+            "src": "Input .csv file, e.g. \"data/src.csv\".",
+            "dest": "Valid .csv file, e.g. \"data/valid.csv\".",
+            "invalidDest": "Invalid .csv file, e.g. \"data/invalid.csv\".",
+            "delimiter": "Delimiter of your .csv file.",
+            "cells": "List of cells wich data should be fixed, e.g. \"Email Address, Work Email\"."
         }
     },
 
