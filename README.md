@@ -2,7 +2,54 @@
 
 Tools that help you fix data before import
 
-## 1. Fixing multiple data in one cell
+## 1. Skipping invalid email adresses
+
+This tool helps to find invalid email adresses and skip them in the .csv file.
+After running this tool will be created two .csv files:
+
+- the first will contain the list of correct records.
+- the second will contain the list of invalid records.
+
+### Example of input data
+
+| First name | Last name |  ... | Email Address | Work Email |
+|:----:|:----:|:----:| :----:| :----:|
+| Joe |  Coyle | .... | joe@tester.com | joe@workemail.com |
+| Paul | Jones | .... | paul@tester | paul@workemail.com |
+| Tom |  Richmond | .... | tom@tester.com | tom |
+| Connie |  Patterson | .... | connie@tester.com | connie@workemail.com  |
+
+### Result
+
+#### Valid list
+
+| First name | Last name |  ... | Email Address | Work Email |
+|:----:|:----:|:----:| :----:| :----:|
+| Joe |  Coyle | .... | joe@tester.com | joe@workemail.com |
+| Connie |  Patterson | .... | connie@tester.com | connie@workemail.com  |
+
+#### Invalid list
+
+| First name | Last name |  ... | Email Address | Work Email |
+|:----:|:----:|:----:| :----:| :----:|
+| Paul | Jones | .... | paul@tester | paul@workemail.com |
+| Tom |  Richmond | .... | tom@tester.com | tom |
+
+### Usage
+
+```
+php command.php csvTool skipInvalidEmails --src="data/contacts.csv" --dest="data/valid.csv" --invalidDest="data/invalid.csv" --cells="Email Address, Work Email" --delimiter=","
+```
+
+- `src`: Input .csv file, e.g. "data/src.csv".
+- `dest`: Valid list saved to .csv file, e.g. "data/valid.csv".
+- `invalidDest`: Invalid list saved to .csv file, e.g. "data/invalid.csv".
+- `delimiter`: Delimiter of your .csv file.
+- `cells`: List of cells wich data should be fixed, e.g. "Email Address, Work Email".
+
+## 2. Fixing multiple data in one cell
+
+This tool help to fix data when one cell contains multiple data.
 
 ### Example of input data
 
@@ -16,7 +63,7 @@ Tools that help you fix data before import
 |:----:|:----:|:----:| :----:| :----:|:----:|:----:|:----:|
 | Test |  Tester | .... | email1@tester.com | email2@tester.com | email3@tester.com | 089 123 123 12 | 075 111 222 33 |
 
-### Run
+### Usage
 
 ```
 php command.php csvTool fixCellData --src="data/contacts.csv" --dest="data/converted.csv" --cells="Work Email, Mobile Phone" --delimiter="," --delimiterInsideCell=","
