@@ -1,7 +1,7 @@
 {
-    "module": "ImportTools",
-    "name": "ImportTools",
-    "description": "Import Tools for EspoCRM.",
+    "module": "DataTools",
+    "name": "DataTools",
+    "description": "Data Tools for EspoCRM.",
     "author": "EspoCRM",
     "acceptableVersions": [
         ">=7.0.0"

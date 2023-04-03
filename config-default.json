@@ -8,7 +8,7 @@
         "host": "localhost",
         "port": "",
         "charset": "utf8mb4",
-        "dbname": "ext-import-tools",
+        "dbname": "ext-data-tools",
         "user": "root",
         "password": ""
     },
@@ -16,7 +16,7 @@
         "language": "en_US",
         "defaultOwner": "www-data",
         "defaultGroup": "www-data",
-        "siteUrl": "http://localhost/ext-import-tools/site",
+        "siteUrl": "http://localhost/ext-data-tools/site",
         "adminUsername": "admin",
         "adminPassword": "1"
     }
