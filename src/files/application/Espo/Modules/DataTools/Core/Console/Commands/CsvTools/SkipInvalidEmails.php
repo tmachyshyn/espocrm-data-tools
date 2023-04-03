@@ -24,9 +24,38 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Tools;
+namespace Espo\Modules\DataTools\Core\Console\Commands\CsvTools;
 
-interface Tool
+use Espo\Core\{
+    Console\IO,
+    Console\Command,
+    Console\Command\Params,
+};
+
+use Espo\Modules\DataTools\Tools\{
+    ToolRunner,
+    Csv\SkipInvalidEmails\Params as ToolParams,
+};
+
+class SkipInvalidEmails implements Command
 {
-    public function run(Params $params) : void;
+    private $toolRunner;
+
+    public function __construct(ToolRunner $toolRunner)
+    {
+        $this->toolRunner = $toolRunner;
+    }
+
+    public function run(Params $params, IO $io): void
+    {
+        $toolParams = ToolParams::fromRaw([
+            'src' => $params->getOption('src'),
+            'dest' => $params->getOption('dest'),
+            'invalidDest' => $params->getOption('invalidDest'),
+            'delimiter' => $params->getOption('delimiter'),
+            'cells' => $params->getOption('cells'),
+        ]);
+
+        $this->toolRunner->run($toolParams, $io);
+    }
 }

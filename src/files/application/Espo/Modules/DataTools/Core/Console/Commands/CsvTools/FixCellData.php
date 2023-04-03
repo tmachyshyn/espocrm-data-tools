@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Core\Console\Commands\CsvTools;
+namespace Espo\Modules\DataTools\Core\Console\Commands\CsvTools;
 
 use Espo\Core\{
     Console\IO,
@@ -32,7 +32,7 @@ use Espo\Core\{
     Console\Command\Params,
 };
 
-use Espo\Modules\ImportTools\Tools\{
+use Espo\Modules\DataTools\Tools\{
     ToolRunner,
     Csv\FixCellData\Params as ToolParams,
 };

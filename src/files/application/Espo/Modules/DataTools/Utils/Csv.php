@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Utils;
+namespace Espo\Modules\DataTools\Utils;
 
 class Csv
 {

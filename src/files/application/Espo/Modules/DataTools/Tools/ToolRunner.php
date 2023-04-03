@@ -24,38 +24,60 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Core\Console\Commands\CsvTools;
+namespace Espo\Modules\DataTools\Tools;
 
 use Espo\Core\{
+    Di,
     Console\IO,
-    Console\Command,
-    Console\Command\Params,
 };
 
-use Espo\Modules\ImportTools\Tools\{
-    ToolRunner,
-    Csv\SkipInvalidEmails\Params as ToolParams,
-};
+use Espo\Modules\DataTools\Tools\Params as ToolParams;
 
-class SkipInvalidEmails implements Command
+use Throwable;
+
+class ToolRunner implements
+
+    Di\MetadataAware,
+    Di\InjectableFactoryAware
 {
-    private $toolRunner;
+    use Di\MetadataSetter;
+    use Di\InjectableFactorySetter;
 
-    public function __construct(ToolRunner $toolRunner)
+    public function run(ToolParams $toolParams, IO $io): bool
     {
-        $this->toolRunner = $toolRunner;
-    }
-
-    public function run(Params $params, IO $io): void
-    {
-        $toolParams = ToolParams::fromRaw([
-            'src' => $params->getOption('src'),
-            'dest' => $params->getOption('dest'),
-            'invalidDest' => $params->getOption('invalidDest'),
-            'delimiter' => $params->getOption('delimiter'),
-            'cells' => $params->getOption('cells'),
+        $className = $this->metadata->get([
+            'app', 'dataTools', 'toolsClassNameMap', $toolParams->getToolName()
         ]);
 
-        $this->toolRunner->run($toolParams, $io);
+        if (!$className || !class_exists($className)) {
+            $io->writeLine(
+                "Error: tool is not found."
+            );
+
+            return false;
+        }
+
+        $class = $this->injectableFactory->create($className);
+
+        try {
+            $class->run($toolParams);
+        } catch (Throwable $e) {
+            $io->writeLine(
+                "Error: " . $e->getMessage()
+            );
+
+            $GLOBALS['log']->error(
+                'DataTools Error: ' . $e->getMessage() .
+                ' at '. $e->getFile() . ':' . $e->getLine()
+            );
+
+            return false;
+        }
+
+        $io->writeLine(
+            "Done. Saved to \"" . $toolParams->getDest() . "\"."
+        );
+
+        return true;
     }
 }

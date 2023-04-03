@@ -24,60 +24,70 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Tools;
+namespace Espo\Modules\DataTools\Core\Console\Commands;
 
 use Espo\Core\{
     Di,
     Console\IO,
+    Console\Command,
+    Console\Command\Params,
 };
 
-use Espo\Modules\ImportTools\Tools\Params as ToolParams;
+class CsvTool implements
 
-use Throwable;
-
-class ToolRunner implements
-
+    Command,
     Di\MetadataAware,
     Di\InjectableFactoryAware
 {
     use Di\MetadataSetter;
     use Di\InjectableFactorySetter;
 
-    public function run(ToolParams $toolParams, IO $io): bool
+    public function run(Params $params, IO $io): void
     {
+        $action = $params->getArgument(0);
+
+        if (!$action) {
+            $io->writeLine(
+                "Error: action is not specified."
+            );
+
+            $io->writeLine(
+                "Available actions: " . $this->getAvailableActions()
+            );
+
+            return;
+        }
+
         $className = $this->metadata->get([
-            'app', 'importTools', 'toolsClassNameMap', $toolParams->getToolName()
+            'app', 'dataTools', 'commandsClassNameMap', ucfirst($action)
         ]);
 
         if (!$className || !class_exists($className)) {
             $io->writeLine(
-                "Error: tool is not found."
+                "Error: action is not found."
             );
 
-            return false;
+            $io->writeLine(
+                "Available actions: " . $this->getAvailableActions()
+            );
+
+            return;
         }
 
         $class = $this->injectableFactory->create($className);
+        $class->run($params, $io);
+    }
 
-        try {
-            $class->run($toolParams);
-        } catch (Throwable $e) {
-            $io->writeLine(
-                "Error: " . $e->getMessage()
-            );
+    private function getAvailableActions($delimiter = " | "): string
+    {
+        $classNames = $this->metadata->get([
+            'app', 'dataTools', 'commandsClassNameMap'
+        ]);
 
-            $GLOBALS['log']->error(
-                'ImportTools Error: ' . $e->getMessage() .
-                ' at '. $e->getFile() . ':' . $e->getLine()
-            );
-
-            return false;
+        if (!$classNames) {
+            return "";
         }
 
-        $io->writeLine(
-            "Done. Saved to \"" . $toolParams->getDest() . "\"."
-        );
-
-        return true;
+        return implode($delimiter, array_keys($classNames));
     }
 }

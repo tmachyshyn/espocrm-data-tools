@@ -24,13 +24,9 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Tools;
+namespace Espo\Modules\DataTools\Tools;
 
-interface Params
+interface Tool
 {
-    public static function create(): self;
-
-    public static function fromRaw(array $params): self;
-
-    public function getRaw(): array;
+    public function run(Params $params) : void;
 }

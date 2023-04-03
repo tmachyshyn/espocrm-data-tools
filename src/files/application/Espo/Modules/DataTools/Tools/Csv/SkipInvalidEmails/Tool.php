@@ -24,9 +24,9 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\ImportTools\Tools\Csv\SkipInvalidEmails;
+namespace Espo\Modules\DataTools\Tools\Csv\SkipInvalidEmails;
 
-use Espo\Modules\ImportTools\{
+use Espo\Modules\DataTools\{
     Tools\Params,
     Tools\Tool as ITool,
     Utils\Csv as CsvUtil

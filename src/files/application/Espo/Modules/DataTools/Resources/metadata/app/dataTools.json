@@ -1,7 +1,7 @@
 {
     "commandsClassNameMap": {
-        "FixCellData":"Espo\\Modules\\ImportTools\\Core\\Console\\Commands\\CsvTools\\FixCellData",
-        "SkipInvalidEmails":"Espo\\Modules\\ImportTools\\Core\\Console\\Commands\\CsvTools\\SkipInvalidEmails"
+        "FixCellData":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\FixCellData",
+        "SkipInvalidEmails":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\SkipInvalidEmails"
     },
 
     "commandsExampleMap": {
@@ -27,7 +27,7 @@
     },
 
     "toolsClassNameMap": {
-        "FixCellData": "Espo\\Modules\\ImportTools\\Tools\\Csv\\FixCellData\\Tool",
-        "SkipInvalidEmails": "Espo\\Modules\\ImportTools\\Tools\\Csv\\SkipInvalidEmails\\Tool"
+        "FixCellData": "Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Tool",
+        "SkipInvalidEmails": "Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Tool"
     }
 }

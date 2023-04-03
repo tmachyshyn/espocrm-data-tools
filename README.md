@@ -1,8 +1,8 @@
-# Import Tools for EspoCRM
+# Data Tools for EspoCRM
 
-Tools that help you fix data before import
+Tools that help you to get data information or fix data before import.
 
-## 1. Skipping invalid email addresses
+## 1. Skipping invalid email addresses for .csv
 
 This tool helps to find invalid email addresses and skip them in the .csv file.
 After running this tool will be created two .csv files:
@@ -47,7 +47,7 @@ php command.php csvTool skipInvalidEmails --src="data/contacts.csv" --dest="data
 - `delimiter`: Delimiter of your .csv file.
 - `cells`: List of cells wich data should be fixed, e.g. "Email Address, Work Email".
 
-## 2. Fixing multiple data in one cell
+## 2. Fixing multiple data in one cell for .csv
 
 This tool help to fix data when one cell contains multiple data.
 
