@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\DataTools\Core\Console\Commands\CsvTools;
+namespace Espo\Modules\DataTools\Tools\Csv\SkipInvalidEmails;
 
 use Espo\Core\{
     Console\IO,
@@ -37,7 +37,7 @@ use Espo\Modules\DataTools\Tools\{
     Csv\SkipInvalidEmails\Params as ToolParams,
 };
 
-class SkipInvalidEmails implements Command
+class Runner implements Command
 {
     private $toolRunner;
 

@@ -46,7 +46,7 @@ class ToolRunner implements
     public function run(ToolParams $toolParams, IO $io): bool
     {
         $className = $this->metadata->get([
-            'app', 'dataTools', 'toolsClassNameMap', $toolParams->getToolName()
+            'app', 'dataTools', 'toolClassNameMap', $toolParams->getToolName()
         ]);
 
         if (!$className || !class_exists($className)) {

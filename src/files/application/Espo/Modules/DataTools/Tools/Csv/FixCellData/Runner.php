@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\DataTools\Core\Console\Commands\CsvTools;
+namespace Espo\Modules\DataTools\Tools\Csv\FixCellData;
 
 use Espo\Core\{
     Console\IO,
@@ -37,7 +37,7 @@ use Espo\Modules\DataTools\Tools\{
     Csv\FixCellData\Params as ToolParams,
 };
 
-class FixCellData implements Command
+class Runner implements Command
 {
     private $toolRunner;
 

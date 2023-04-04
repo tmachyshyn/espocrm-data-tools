@@ -59,7 +59,7 @@ class DataTool implements
         }
 
         $className = $this->metadata->get([
-            'app', 'dataTools', 'commandsClassNameMap', ucfirst($action)
+            'app', 'dataTools', 'runnnerClassNameMap', ucfirst($action)
         ]);
 
         if (!$className || !class_exists($className)) {
@@ -81,7 +81,7 @@ class DataTool implements
     private function getAvailableActions($delimiter = " | "): string
     {
         $classNames = $this->metadata->get([
-            'app', 'dataTools', 'commandsClassNameMap'
+            'app', 'dataTools', 'runnnerClassNameMap'
         ]);
 
         if (!$classNames) {

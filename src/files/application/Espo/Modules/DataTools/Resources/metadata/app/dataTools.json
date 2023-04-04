@@ -1,35 +1,12 @@
 {
-    "commandsClassNameMap": {
-        "FixCellData":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\FixCellData",
-        "SkipInvalidEmails":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\SkipInvalidEmails",
+    "runnnerClassNameMap": {
+        "FixCellData":"Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Runner",
+        "SkipInvalidEmails":"Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Runner",
         "DeletedColums": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColums\\Runner"
     },
-
-    "commandsExampleMap": {
-        "FixCellData": "php command.php csvTool fixCellData --source=\"data/source.csv\" --dest=\"data/dest.csv\" --cells=\"Work Email, Mobile Phone\" --delimiter=\",\" --delimiterInsideCell=\",\"",
-        "SkipInvalidEmails": "php command.php csvTool skipInvalidEmails --delimiter=\",\" --source=\"data/source.csv\" --dest=\"data/dest.csv\" --invalidDest=\"data/invalid-dest.csv\" --cells=\"Work Email\""
-    },
-
-    "toolsClassNameMap": {
+    "toolClassNameMap": {
         "FixCellData": "Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Tool",
         "SkipInvalidEmails": "Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Tool",
         "DeletedColums": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColums\\Tool"
-    },
-
-    "commandsParamsMap": {
-        "FixCellData": {
-            "src": "Input .csv file, e.g. \"data/src.csv\".",
-            "dest": "Output .csv file, e.g. \"data/dest.csv\".",
-            "delimiter": "Delimiter of your .csv file.",
-            "delimiterInsideCell": "Delimiter inside a cell, e.g. \"email1@sample.com, email2@sample.com,\"",
-            "cells": "List of cells wich data should be fixed, e.g. \"Phone Number, Work Email\"."
-        },
-        "SkipInvalidEmails": {
-            "src": "Input .csv file, e.g. \"data/src.csv\".",
-            "dest": "Valid .csv file, e.g. \"data/valid.csv\".",
-            "invalidDest": "Invalid .csv file, e.g. \"data/invalid.csv\".",
-            "delimiter": "Delimiter of your .csv file.",
-            "cells": "List of cells wich data should be fixed, e.g. \"Email Address, Work Email\"."
-        }
     }
 }
