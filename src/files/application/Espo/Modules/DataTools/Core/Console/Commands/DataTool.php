@@ -33,7 +33,7 @@ use Espo\Core\{
     Console\Command\Params,
 };
 
-class CsvTool implements
+class DataTool implements
 
     Command,
     Di\MetadataAware,

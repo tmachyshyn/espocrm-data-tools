@@ -38,7 +38,7 @@ After running this tool will be created two .csv files:
 ### Usage
 
 ```
-php command.php csvTool skipInvalidEmails --src="data/contacts.csv" --dest="data/valid.csv" --invalidDest="data/invalid.csv" --cells="Email Address, Work Email" --delimiter=","
+php command.php data-tool skipInvalidEmails --src="data/contacts.csv" --dest="data/valid.csv" --invalidDest="data/invalid.csv" --cells="Email Address, Work Email" --delimiter=","
 ```
 
 - `src`: Input .csv file, e.g. "data/src.csv".
@@ -66,7 +66,7 @@ This tool help to fix data when one cell contains multiple data.
 ### Usage
 
 ```
-php command.php csvTool fixCellData --src="data/contacts.csv" --dest="data/converted.csv" --cells="Work Email, Mobile Phone" --delimiter="," --delimiterInsideCell=","
+php command.php data-tool fixCellData --src="data/contacts.csv" --dest="data/converted.csv" --cells="Work Email, Mobile Phone" --delimiter="," --delimiterInsideCell=","
 ```
 
 - `src`: Input .csv file, e.g. "data/src.csv".

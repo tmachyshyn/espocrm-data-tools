@@ -1,6 +1,6 @@
 {
-    "csvTool": {
-        "className": "Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTool",
+    "dataTool": {
+        "className": "Espo\\Modules\\DataTools\\Core\\Console\\Commands\\DataTool",
         "listed": true
     }
 }
