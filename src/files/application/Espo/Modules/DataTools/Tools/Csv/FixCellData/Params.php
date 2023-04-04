@@ -3,7 +3,7 @@
  * This file is part of Import Tools extension for EspoCRM.
  *
  * Import Tools extension for EspoCRM.
- * Copyright (C) 2014-2022 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
+ * Copyright (C) 2014-2023 Yurii Kuznietsov, Taras Machyshyn, Oleksii Avramenko
  * Website: https://www.espocrm.com
  *
  * Import Tools extension is free software: you can redistribute it and/or modify
