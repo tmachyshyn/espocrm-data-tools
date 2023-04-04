@@ -75,6 +75,20 @@ php command.php data-tool fixCellData --src="data/contacts.csv" --dest="data/con
 - `delimiterInsideCell`: Delimiter inside a cell, e.g. "," for the data "email1@sample.com, email2@sample.com".
 - `cells`: List of cells wich data should be fixed, e.g. "Phone Number, Work Email".
 
+## 3. Get a column list of deleted fields
+
+In case of deleting a field from Administration > Entity Manager, the field still exists in the database.
+
+### Usage
+
+```
+php command.php data-tool deletedColums
+```
+
+- `dest`: Output .csv file, e.g. `--dest="data/list.csv"`.
+- `delimiter`: Delimiter of generated .csv file, e.g. `--delimiter=","`.
+- `entityTypes`: List of checked entities, e.g. `--entityTypes="Account, Contact"`.
+
 ## License
 
 Change a license in `LICENSE` file. The current license is intended for scripts of this repository.

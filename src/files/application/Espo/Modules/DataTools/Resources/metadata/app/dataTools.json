@@ -1,12 +1,19 @@
 {
     "commandsClassNameMap": {
         "FixCellData":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\FixCellData",
-        "SkipInvalidEmails":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\SkipInvalidEmails"
+        "SkipInvalidEmails":"Espo\\Modules\\DataTools\\Core\\Console\\Commands\\CsvTools\\SkipInvalidEmails",
+        "DeletedColums": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColums\\Runner"
     },
 
     "commandsExampleMap": {
         "FixCellData": "php command.php csvTool fixCellData --source=\"data/source.csv\" --dest=\"data/dest.csv\" --cells=\"Work Email, Mobile Phone\" --delimiter=\",\" --delimiterInsideCell=\",\"",
         "SkipInvalidEmails": "php command.php csvTool skipInvalidEmails --delimiter=\",\" --source=\"data/source.csv\" --dest=\"data/dest.csv\" --invalidDest=\"data/invalid-dest.csv\" --cells=\"Work Email\""
+    },
+
+    "toolsClassNameMap": {
+        "FixCellData": "Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Tool",
+        "SkipInvalidEmails": "Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Tool",
+        "DeletedColums": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColums\\Tool"
     },
 
     "commandsParamsMap": {
@@ -24,10 +31,5 @@
             "delimiter": "Delimiter of your .csv file.",
             "cells": "List of cells wich data should be fixed, e.g. \"Email Address, Work Email\"."
         }
-    },
-
-    "toolsClassNameMap": {
-        "FixCellData": "Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Tool",
-        "SkipInvalidEmails": "Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Tool"
     }
 }
