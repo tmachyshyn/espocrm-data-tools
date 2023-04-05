@@ -41,7 +41,7 @@ class Params implements IParams
 
     private $dest = 'data/dest.csv';
 
-    private $invalidDest = 'data/invalid-dest.csv';
+    private $invalidDest = 'data/invalid.csv';
 
     private $delimiter = ',';
 
@@ -79,7 +79,7 @@ class Params implements IParams
         }
 
         if ($invalidDest) {
-            $obj->delimiterInsideCell = $invalidDest;
+            $obj->invalidDest = $invalidDest;
         }
 
         if (!$cells) {
