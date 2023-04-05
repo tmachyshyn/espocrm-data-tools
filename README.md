@@ -66,7 +66,7 @@ This tool help to fix data when one cell contains multiple data.
 ### Usage
 
 ```
-php command.php data-tool fixCellData --src="data/contacts.csv" --dest="data/converted.csv" --cells="Work Email, Mobile Phone" --delimiter="," --delimiterInsideCell=","
+php command.php data-tool fixCellData --src="data/contacts.csv" --dest="data/converted.csv" --cells="Work Email, Mobile Phone" --delimiter=";" --delimiterInsideCell=","
 ```
 
 - `src`: Input .csv file, e.g. "data/src.csv".
