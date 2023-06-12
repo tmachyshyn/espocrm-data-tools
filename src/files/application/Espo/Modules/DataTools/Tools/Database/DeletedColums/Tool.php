@@ -74,7 +74,7 @@ class Tool implements
         fputcsv($fp, $headerList, $delimiter);
 
         foreach ($entityTypeList as $entityType) {
-            $columnData = $this->getComlumData($entityType);
+            $columnData = $this->getColumnData($entityType);
 
             if (empty($columnData)) {
 
@@ -129,7 +129,7 @@ class Tool implements
         return $list;
     }
 
-    private function getComlumData($entityType): array
+    private function getColumnData($entityType): array
     {
         $tableName = Util::toUnderScore($entityType);
 
