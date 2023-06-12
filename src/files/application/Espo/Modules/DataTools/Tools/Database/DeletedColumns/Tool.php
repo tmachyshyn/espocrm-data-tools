@@ -94,6 +94,7 @@ class Tool implements
                     $data['fieldName'],
                     $data['columnName'],
                     $data['columnType'] ?? null,
+                    $data['sql'] ?? null,
                 ], $delimiter);
             }
         }
@@ -108,6 +109,7 @@ class Tool implements
             'Field Name',
             'Column Name in Database',
             'Column Type in Database',
+            'SQL',
         ];
     }
 
@@ -154,6 +156,7 @@ class Tool implements
                 'columnName' => $columnName,
                 'columnType' => $columnType,
                 'fieldName' => Util::toCamelCase($columnName),
+                'sql' => "ALTER TABLE `" . $tableName . "` DROP `" . $columnName . "`;",
             ];
         }
 
