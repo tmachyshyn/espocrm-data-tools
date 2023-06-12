@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\DataTools\Tools\Database\DeletedColums;
+namespace Espo\Modules\DataTools\Tools\Database\DeletedColumns;
 
 use Espo\{
     Core\Di,

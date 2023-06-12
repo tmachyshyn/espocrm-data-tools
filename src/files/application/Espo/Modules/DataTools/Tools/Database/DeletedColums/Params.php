@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\DataTools\Tools\Database\DeletedColums;
+namespace Espo\Modules\DataTools\Tools\Database\DeletedColumns;
 
 use Espo\Modules\DataTools\{
     Tools\Params as IParams,
@@ -33,7 +33,7 @@ use Espo\Modules\DataTools\{
 
 class Params implements IParams
 {
-    private $toolName = 'DeletedColums';
+    private $toolName = 'DeletedColumns';
 
     private $dest = 'data/dest.csv';
 

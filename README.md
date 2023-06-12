@@ -82,7 +82,7 @@ In case of deleting a field from Administration > Entity Manager, the field stil
 ### Usage
 
 ```
-php command.php data-tool deletedColums
+php command.php data-tool deletedColumns
 ```
 
 - `dest`: Output .csv file, e.g. `--dest="data/list.csv"`.

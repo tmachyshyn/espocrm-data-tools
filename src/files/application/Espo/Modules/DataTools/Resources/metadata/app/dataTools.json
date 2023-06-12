@@ -1,12 +1,12 @@
 {
-    "runnnerClassNameMap": {
+    "runnerClassNameMap": {
         "FixCellData":"Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Runner",
         "SkipInvalidEmails":"Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Runner",
-        "DeletedColums": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColums\\Runner"
+        "DeletedColumns": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColumns\\Runner"
     },
     "toolClassNameMap": {
         "FixCellData": "Espo\\Modules\\DataTools\\Tools\\Csv\\FixCellData\\Tool",
         "SkipInvalidEmails": "Espo\\Modules\\DataTools\\Tools\\Csv\\SkipInvalidEmails\\Tool",
-        "DeletedColums": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColums\\Tool"
+        "DeletedColumns": "Espo\\Modules\\DataTools\\Tools\\Database\\DeletedColumns\\Tool"
     }
 }

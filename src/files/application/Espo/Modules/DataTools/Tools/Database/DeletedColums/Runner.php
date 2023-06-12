@@ -24,7 +24,7 @@
  * Section 5 of the GNU General Public License version 3.
  ************************************************************************/
 
-namespace Espo\Modules\DataTools\Tools\Database\DeletedColums;
+namespace Espo\Modules\DataTools\Tools\Database\DeletedColumns;
 
 use Espo\Core\{
     Console\IO,
@@ -34,7 +34,7 @@ use Espo\Core\{
 
 use Espo\Modules\DataTools\Tools\{
     ToolRunner,
-    Database\DeletedColums\Params as ToolParams,
+    Database\DeletedColumns\Params as ToolParams,
 };
 
 class Runner implements Command
