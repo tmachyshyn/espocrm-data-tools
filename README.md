@@ -45,7 +45,7 @@ php command.php data-tool skipInvalidEmails --src="data/contacts.csv" --dest="da
 - `dest`: Valid list saved to .csv file, e.g. "data/valid.csv".
 - `invalidDest`: Invalid list saved to .csv file, e.g. "data/invalid.csv".
 - `delimiter`: Delimiter of your .csv file.
-- `cells`: List of cells wich data should be fixed, e.g. "Email Address, Work Email".
+- `cells`: List of cells which data should be fixed, e.g. "Email Address, Work Email".
 
 ## 2. Fixing multiple data in one cell for .csv
 
@@ -53,13 +53,13 @@ This tool help to fix data when one cell contains multiple data.
 
 ### Example of input data
 
-| First name | Last name |  ... | Email Address | Pnone Number |
+| First name | Last name |  ... | Email Address | Phone Number |
 |:----:|:----:|:----:| :----:| :----:|
 | Test |  Tester | .... | email1@tester.com, email2@tester.com, email3@tester.com | 089 123 123 12, 075 111 222 33 |
 
 ### Result
 
-| First name | Last name |  ... | Email Address | Email Address 2 | Email Address 3 | Pnone Number | Pnone Number 2 |
+| First name | Last name |  ... | Email Address | Email Address 2 | Email Address 3 | Phone Number | Phone Number 2 |
 |:----:|:----:|:----:| :----:| :----:|:----:|:----:|:----:|
 | Test |  Tester | .... | email1@tester.com | email2@tester.com | email3@tester.com | 089 123 123 12 | 075 111 222 33 |
 
@@ -73,7 +73,7 @@ php command.php data-tool fixCellData --src="data/contacts.csv" --dest="data/con
 - `dest`: Output .csv file, e.g. "data/dest.csv".
 - `delimiter`: Delimiter of your .csv file.
 - `delimiterInsideCell`: Delimiter inside a cell, e.g. "," for the data "email1@sample.com, email2@sample.com".
-- `cells`: List of cells wich data should be fixed, e.g. "Phone Number, Work Email".
+- `cells`: List of cells which data should be fixed, e.g. "Phone Number, Work Email".
 
 ## 3. Get a column list of deleted fields
 
